@@ -23,7 +23,11 @@ const Header = () => {
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
           </Nav>
-          <ShoppingCartIcon style={{ fontSize: "30px", float: "right", marginRight: '15px', color: "white", cursor: 'pointer' }} />
+          <ShoppingCartIcon style={{ fontSize: "30px", float: "right", marginRight: '15px', color: "white", cursor: 'pointer' }}  id="basic-button"
+          aria-controls={open ? 'basic-menu' : undefined}
+          aria-haspopup="true"
+          aria-expanded={open ? 'true' : undefined}
+          onClick={handleClick}/>
         </Container>
 
         <Menu
@@ -35,10 +39,11 @@ const Header = () => {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-      </Menu>>
+      <div style={{position:'relative'}}>
+      <i className='fas fa-close smallclose'  style={{position:'absolute'}} onClick={handleClose}></i>
+      <p>Cart is Empty </p><img src='https://miro.medium.com/v2/resize:fit:1100/1*D-ZiKd0B00tdifaB2X3tKQ.gif' style={{width:'100px',padding:'10px'}}></img>
+      </div>
+      </Menu>
       </Navbar>
     </div>
   )
